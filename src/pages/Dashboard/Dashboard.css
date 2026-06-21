@@ -1,0 +1,31 @@
+.dashboard-page {
+  min-height: 100vh;
+  background: #f5f7fb;
+  padding: 40px;
+}
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.dashboard-title {
+  margin: 0;
+  color: #1f2937;
+  font-size: 34px;
+}
+
+.dashboard-subtitle {
+  color: #6b7280;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.dashboard-placeholder {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  font-size: 20px;
+  text-align: center;
+}
