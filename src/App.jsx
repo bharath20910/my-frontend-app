@@ -1,27 +1,37 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 import Login from "./pages/Login/Login";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import ReferralDetails from "./pages/ReferralDetails/ReferralDetails";
+import NotFound from "./pages/NotFound/NotFound";
 
 
 function App() {
   return (
-    <BrowserRouter basename="/my-frontend-app">
+    <HashRouter>
 
       <Routes>
 
-        <Route
-          path="/"
-          element={<Login />}
+        <Route path="/" element={<Login />} />
+
+        <Route 
+          path="/dashboard" 
+          element={<Dashboard />} 
         />
 
         <Route
-          path="/dashboard"
-          element={<h1>DASHBOARD WORKING</h1>}
+          path="/referral/:id"
+          element={<ReferralDetails />}
+        />
+
+        <Route
+          path="*"
+          element={<NotFound />}
         />
 
       </Routes>
 
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
