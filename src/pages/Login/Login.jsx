@@ -17,7 +17,7 @@ const Login = () => {
       expires: 30,
     })
 
-    navigate('/', {replace: true})
+    navigate('/dashboard', {replace: true})
   }
 
   const onSubmitFailure = error => {
@@ -46,32 +46,46 @@ const Login = () => {
         onSubmitSuccess(data.data.token)
       } else {
         onSubmitFailure(
-          data.message || 'Invalid email or password',
+          data.message || 'Invalid email or password'
         )
       }
+
     } catch (error) {
       console.error(error)
       onSubmitFailure('Unable to connect to server')
     }
   }
 
+
   const jwtToken = Cookies.get('jwt_token')
 
   if (jwtToken) {
-    return <Navigate to="/" replace />
+    return <Navigate to="/dashboard" replace />
   }
+
 
   return (
     <div className="login-page">
+
       <div className="login-card">
-        <h1 className="login-logo">Referral Dashboard</h1>
+
+        <h1 className="login-logo">
+          Referral Dashboard
+        </h1>
 
         <p className="login-description">
           Sign in to continue
         </p>
 
-        <form className="login-form" onSubmit={submitForm}>
-          <label htmlFor="email">EMAIL</label>
+
+        <form 
+          className="login-form" 
+          onSubmit={submitForm}
+        >
+
+          <label htmlFor="email">
+            EMAIL
+          </label>
 
           <input
             id="email"
@@ -81,7 +95,10 @@ const Login = () => {
             placeholder="admin@example.com"
           />
 
-          <label htmlFor="password">PASSWORD</label>
+
+          <label htmlFor="password">
+            PASSWORD
+          </label>
 
           <input
             id="password"
@@ -91,17 +108,25 @@ const Login = () => {
             placeholder="admin123"
           />
 
-          <button type="submit">Login</button>
+
+          <button type="submit">
+            Login
+          </button>
+
 
           {showError && (
             <p className="error-message">
               {errorMsg}
             </p>
           )}
+
         </form>
+
       </div>
+
     </div>
   )
 }
+
 
 export default Login

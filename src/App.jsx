@@ -1,34 +1,26 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
-import Dashboard from './pages/Dashboard/Dashboard';
-import Login from './pages/Login/Login';
-import NotFound from './pages/NotFound/NotFound';
-import ReferralDetails from './pages/ReferralDetails/ReferralDetails';
+import Login from "./pages/Login/Login";
+
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/my-frontend-app">
+
       <Routes>
-        <Route path="/login" element={<Login />} />
+
         <Route
           path="/"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
+          element={<Login />}
         />
+
         <Route
-          path="/referral/:id"
-          element={
-            <ProtectedRoute>
-              <ReferralDetails />
-            </ProtectedRoute>
-          }
+          path="/dashboard"
+          element={<h1>DASHBOARD WORKING</h1>}
         />
-        <Route path="*" element={<NotFound />} />
+
       </Routes>
+
     </BrowserRouter>
   );
 }
